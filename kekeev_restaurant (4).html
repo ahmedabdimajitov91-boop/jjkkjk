@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KEKEEV RESTAURANT | Искусство вкуса & Высокая кухня</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            400: '#F3E5AB',
+                            500: '#D4AF37',
+                            600: '#AA820A',
+                            700: '#856404',
+                        },
+                        obsidian: '#0D0D0D',
+                        espresso: '#1A1412',
+                        beige: '#E8DCC4'
+                    },
+                    fontFamily: {
+                        serif: ['Cormorant Garamond', 'serif'],
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Styling & Glassmorphism */
+        body {
+            background-color: #0D0D0D;
+            color: #E8DCC4;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+        }
+        h1, h2, h3, h4, .font-serif {
+            font-family: 'Cormorant Garamond', serif;
+        }
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #FFF099 0%, #D4AF37 50%, #997A15 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gold-gradient-bg {
+            background: linear-gradient(135deg, #E6C200 0%, #D4AF37 50%, #997A15 100%);
+        }
+        .gold-border-glow {
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.15);
+        }
+        .gold-border-glow:hover {
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.35);
+        }
+        .glass-header {
+            background: rgba(13, 13, 13, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        .glass-card {
+            background: rgba(26, 20, 18, 0.7);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(212, 175, 55, 0.15);
+        }
+        /* Hide scrollbar for clean UI */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-gold-500 selection:text-black">
+
+    <!-- NAVIGATION HEADER -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-header transition-all duration-300" id="main-header">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20 sm:h-24">
+                
+                <!-- Logo -->
+                <a href="#" class="flex items-center gap-3 group">
+                    <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-full border border-gold-500/40 flex items-center justify-center text-gold-500 group-hover:border-gold-500 transition-colors shadow-lg shadow-gold-500/10">
+                        <i class="fa-solid font-bold text-lg sm:text-xl fa-crown"></i>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-serif text-xl sm:text-2xl font-bold tracking-widest text-white group-hover:text-gold-500 transition-colors uppercase">KEKEEV</span>
+                        <span class="text-[9px] sm:text-[10px] tracking-[0.3em] text-gold-500 uppercase font-light">RESTAURANT</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Nav Links -->
+                <nav class="hidden lg:flex items-center space-x-8 text-sm uppercase tracking-widest font-medium">
+                    <a href="#hero" class="text-white hover:text-gold-500 transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-gold-500 hover:after:w-full after:transition-all" data-i18n="nav_home">Главная</a>
+                    <a href="#menu" class="text-gray-300 hover:text-gold-500 transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-gold-500 hover:after:w-full after:transition-all" data-i18n="nav_menu">Меню</a>
+                    <a href="#about" class="text-gray-300 hover:text-gold-500 transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-gold-500 hover:after:w-full after:transition-all" data-i18n="nav_about">О нас</a>
+                    <a href="#gallery" class="text-gray-300 hover:text-gold-500 transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-gold-500 hover:after:w-full after:transition-all" data-i18n="nav_gallery">Галерея</a>
+                    <a href="#reservation" class="text-gray-300 hover:text-gold-500 transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-gold-500 hover:after:w-full after:transition-all" data-i18n="nav_reservation">Бронирование</a>
+                    <a href="#reviews" class="text-gray-300 hover:text-gold-500 transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-gold-500 hover:after:w-full after:transition-all" data-i18n="nav_reviews">Отзывы</a>
+                    <a href="#contacts" class="text-gray-300 hover:text-gold-500 transition-colors py-1 relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-[2px] after:bg-gold-500 hover:after:w-full after:transition-all" data-i18n="nav_contacts">Контакты</a>
+                </nav>
+
+                <!-- Header Actions & Utility Controls -->
+                <div class="flex items-center space-x-4 sm:space-x-6">
+                    
+                    <!-- Language Selector -->
+                    <div class="relative group">
+                        <button class="flex items-center space-x-1.5 text-xs font-semibold text-gray-300 hover:text-gold-500 border border-gold-500/30 rounded-full px-3 py-1.5 transition-colors" id="lang-btn">
+                            <i class="fa-solid fa-globe text-gold-500"></i>
+                            <span id="current-lang">RU</span>
+                            <i class="fa-solid fa-chevron-down text-[10px] ml-1"></i>
+                        </button>
+                        <div class="absolute right-0 mt-2 w-24 glass-card rounded-xl py-2 hidden group-hover:block border border-gold-500/20 shadow-2xl">
+                            <button onclick="changeLanguage('KG')" class="w-full text-left px-4 py-1.5 text-xs hover:bg-gold-500/20 hover:text-gold-400 transition-colors">KG (Кыргызча)</button>
+                            <button onclick="changeLanguage('RU')" class="w-full text-left px-4 py-1.5 text-xs hover:bg-gold-500/20 hover:text-gold-400 transition-colors">RU (Русский)</button>
+                            <button onclick="changeLanguage('EN')" class="w-full text-left px-4 py-1.5 text-xs hover:bg-gold-500/20 hover:text-gold-400 transition-colors">EN (English)</button>
+                        </div>
+                    </div>
+
+                    <!-- Shopping Cart Button -->
+                    <button onclick="toggleCartDrawer(true)" class="relative text-gray-200 hover:text-gold-500 transition-colors p-2">
+                        <i class="fa-solid fa-bag-shopping text-xl sm:text-2xl"></i>
+                        <span id="cart-badge" class="absolute -top-1 -right-1 bg-gold-500 text-black font-bold text-[10px] w-5 h-5 rounded-full flex items-center justify-center border-2 border-obsidian hidden">0</span>
+                    </button>
+
+                    <!-- User Account / Auth Widget -->
+                    <div id="auth-header-widget" class="relative">
+                        <!-- Rendered by JavaScript (Login Button or User Profile Avatar Dropdown) -->
+                    </div>
+
+                    <!-- Quick Reserve Button -->
+                    <a href="#reservation" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 text-xs font-bold uppercase tracking-widest text-black gold-gradient-bg rounded-full hover:shadow-lg hover:shadow-gold-500/30 transform hover:-translate-y-0.5 transition-all">
+                        <span data-i18n="btn_reserve">Забронировать</span>
+                    </a>
+
+                    <!-- Mobile Menu Trigger -->
+                    <button onclick="toggleMobileMenu(true)" class="lg:hidden text-gray-200 hover:text-gold-500 p-2">
+                        <i class="fa-solid fa-bars-staggered text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- MOBILE NAVIGATION DRAWER -->
+    <div id="mobile-drawer" class="fixed inset-0 bg-black/90 z-50 transform translate-x-full transition-transform duration-300 lg:hidden backdrop-blur-md">
+        <div class="flex flex-col h-full p-6 justify-between">
+            <div>
+                <div class="flex items-center justify-between pb-6 border-b border-gold-500/20">
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-crown text-gold-500 text-xl"></i>
+                        <span class="font-serif text-xl font-bold tracking-widest text-white">KEKEEV</span>
+                    </div>
+                    <button onclick="toggleMobileMenu(false)" class="text-gray-400 hover:text-gold-500 text-2xl p-2">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                <nav class="flex flex-col space-y-6 mt-8 uppercase tracking-widest text-sm font-medium">
+                    <a href="#hero" onclick="toggleMobileMenu(false)" class="text-white hover:text-gold-500" data-i18n="nav_home">Главная</a>
+                    <a href="#menu" onclick="toggleMobileMenu(false)" class="text-gray-300 hover:text-gold-500" data-i18n="nav_menu">Меню</a>
+                    <a href="#about" onclick="toggleMobileMenu(false)" class="text-gray-300 hover:text-gold-500" data-i18n="nav_about">О нас</a>
+                    <a href="#gallery" onclick="toggleMobileMenu(false)" class="text-gray-300 hover:text-gold-500" data-i18n="nav_gallery">Галерея</a>
+                    <a href="#reservation" onclick="toggleMobileMenu(false)" class="text-gray-300 hover:text-gold-500" data-i18n="nav_reservation">Бронирование</a>
+                    <a href="#reviews" onclick="toggleMobileMenu(false)" class="text-gray-300 hover:text-gold-500" data-i18n="nav_reviews">Отзывы</a>
+                    <a href="#contacts" onclick="toggleMobileMenu(false)" class="text-gray-300 hover:text-gold-500" data-i18n="nav_contacts">Контакты</a>
+                </nav>
+            </div>
+            <div class="pt-6 border-t border-gold-500/20 flex flex-col gap-4">
+                <a href="#reservation" onclick="toggleMobileMenu(false)" class="w-full py-3.5 text-center text-xs font-bold uppercase tracking-widest text-black gold-gradient-bg rounded-full">
+                    <span data-i18n="btn_reserve">Забронировать стол</span>
+                </a>
+                <div class="text-center text-xs text-gray-500 tracking-wider">
+                    +996 (555) 123-456 • Бишкек
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+        <!-- Background Image with vignette overlay -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=2000&q=80" alt="KEKEEV Interior" class="w-full h-full object-cover scale-105 animate-pulse transition-transform duration-10000" style="animation-duration: 20s;">
+            <div class="absolute inset-0 bg-gradient-to-t from-obsidian via-obsidian/75 to-obsidian/50"></div>
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-transparent via-obsidian/40 to-obsidian"></div>
+        </div>
+
+        <div class="relative z-10 max-w-5xl mx-auto px-4 text-center mt-12 sm:mt-0">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-gold-500/40 bg-black/40 backdrop-blur-md mb-6">
+                <i class="fa-solid fa-star text-gold-500 text-xs"></i>
+                <span class="text-xs uppercase tracking-[0.2em] text-gold-400 font-medium" data-i18n="hero_badge">Премиальный ресторан Бишкека</span>
+                <i class="fa-solid fa-star text-gold-500 text-xs"></i>
+            </div>
+            
+            <h1 class="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white mb-6 leading-none">
+                KEKEEV <span class="block font-light italic gold-gradient-text mt-2" data-i18n="hero_title_sub">— Искусство вкуса</span>
+            </h1>
+
+            <p class="max-w-2xl mx-auto text-base sm:text-lg md:text-xl text-gray-300 font-light tracking-wide mb-10 leading-relaxed" data-i18n="hero_subtitle">
+                Погрузитесь в атмосферу высокой европейской и авторской кухни, где каждое блюдо — это кулинарный шедевр от лучшего шеф-повара.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6">
+                <a href="#menu" class="w-full sm:w-auto px-8 py-4 text-xs sm:text-sm font-bold uppercase tracking-[0.2em] text-black gold-gradient-bg rounded-full hover:shadow-xl hover:shadow-gold-500/25 transform hover:-translate-y-1 transition-all flex items-center justify-center gap-2">
+                    <span data-i18n="hero_btn_menu">Посмотреть меню</span>
+                    <i class="fa-solid fa-arrow-right text-xs"></i>
+                </a>
+                <a href="#reservation" class="w-full sm:w-auto px-8 py-4 text-xs sm:text-sm font-bold uppercase tracking-[0.2em] text-white border border-gold-500/50 rounded-full hover:border-gold-500 hover:bg-gold-500/10 backdrop-blur-sm transition-all flex items-center justify-center">
+                    <span data-i18n="hero_btn_reserve">Забронировать стол</span>
+                </a>
+            </div>
+
+            <!-- Key Stats Banner -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-16 sm:mt-24 pt-8 border-t border-gold-500/20 max-w-4xl mx-auto">
+                <div class="text-center">
+                    <div class="font-serif text-3xl sm:text-4xl font-bold gold-gradient-text">15+</div>
+                    <div class="text-xs text-gray-400 uppercase tracking-widest mt-1" data-i18n="stat_1">Лет совершенства</div>
+                </div>
+                <div class="text-center">
+                    <div class="font-serif text-3xl sm:text-4xl font-bold gold-gradient-text">3</div>
+                    <div class="text-xs text-gray-400 uppercase tracking-widest mt-1" data-i18n="stat_2">Мишлен Шефа</div>
+                </div>
+                <div class="text-center">
+                    <div class="font-serif text-3xl sm:text-4xl font-bold gold-gradient-text">100%</div>
+                    <div class="text-xs text-gray-400 uppercase tracking-widest mt-1" data-i18n="stat_3">Органика & Свежесть</div>
+                </div>
+                <div class="text-center">
+                    <div class="font-serif text-3xl sm:text-4xl font-bold gold-gradient-text">4.9</div>
+                    <div class="text-xs text-gray-400 uppercase tracking-widest mt-1" data-i18n="stat_4">Рейтинг клиентов</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Down indicator -->
+        <a href="#menu" class="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 text-gold-500/60 hover:text-gold-500 transition-colors">
+            <span class="text-[10px] uppercase tracking-widest">Прокрутите вниз</span>
+            <i class="fa-solid fa-chevron-down text-xs animate-bounce"></i>
+        </a>
+    </section>
+
+    <!-- MENU SECTION (FILTERABLE & INTERACTIVE) -->
+    <section id="menu" class="py-24 relative bg-obsidian">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-gold-500 text-xs font-semibold tracking-[0.3em] uppercase block mb-3" data-i18n="menu_subtitle">Гастрономическая коллекция</span>
+                <h2 class="font-serif text-4xl sm:text-5xl font-bold text-white mb-6" data-i18n="menu_title">Изысканное Меню</h2>
+                <div class="w-16 h-[2px] gold-gradient-bg mx-auto mb-6"></div>
+                <p class="text-gray-400 text-sm sm:text-base font-light" data-i18n="menu_desc">Наши блюда создаются из высших сортов мраморной говядины, свежайших морепродуктов и локальных фермерских продуктов.</p>
+            </div>
+
+            <!-- Menu Categories Filter Tabs -->
+            <div class="flex items-center justify-start md:justify-center space-x-2 sm:space-x-4 overflow-x-auto no-scrollbar pb-6 mb-12">
+                <button onclick="filterMenu('all')" class="menu-tab active bg-gold-500 text-black px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider whitespace-nowrap transition-all" data-cat="all" data-i18n="cat_all">Все блюда</button>
+                <button onclick="filterMenu('mains')" class="menu-tab border border-gold-500/30 text-gray-300 hover:border-gold-500 px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider whitespace-nowrap transition-all" data-cat="mains" data-i18n="cat_mains">Горячие блюда</button>
+                <button onclick="filterMenu('starters')" class="menu-tab border border-gold-500/30 text-gray-300 hover:border-gold-500 px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider whitespace-nowrap transition-all" data-cat="starters" data-i18n="cat_starters">Закуски & Салаты</button>
+                <button onclick="filterMenu('desserts')" class="menu-tab border border-gold-500/30 text-gray-300 hover:border-gold-500 px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider whitespace-nowrap transition-all" data-cat="desserts" data-i18n="cat_desserts">Десерты</button>
+                <button onclick="filterMenu('drinks')" class="menu-tab border border-gold-500/30 text-gray-300 hover:border-gold-500 px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-wider whitespace-nowrap transition-all" data-cat="drinks" data-i18n="cat_drinks">Авторские Напитки</button>
+            </div>
+
+            <!-- Menu Cards Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="menu-grid">
+                <!-- JavaScript will populate items here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT & CHEF SECTION -->
+    <section id="about" class="py-24 bg-espresso relative overflow-hidden border-y border-gold-500/10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                
+                <!-- Images Montage -->
+                <div class="relative">
+                    <div class="relative z-10 rounded-2xl overflow-hidden border border-gold-500/30 shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=1000&q=80" alt="Executive Chef KEKEEV" class="w-full h-[480px] object-cover hover:scale-105 transition-transform duration-700">
+                    </div>
+                    <!-- Secondary Accent Image -->
+                    <div class="absolute -bottom-8 -right-8 z-20 w-3/5 hidden sm:block rounded-xl overflow-hidden border-2 border-gold-500 shadow-2xl">
+                        <img src="https://images.unsplash.com/photo-1550966871-3ed3cdb5ed0c?auto=format&fit=crop&w=600&q=80" alt="Plating Dish" class="w-full h-48 object-cover">
+                    </div>
+                    <div class="absolute -top-6 -left-6 w-32 h-32 border-l-2 border-t-2 border-gold-500/50 z-0"></div>
+                </div>
+
+                <!-- Text Content -->
+                <div class="space-y-6">
+                    <span class="text-gold-500 text-xs font-semibold tracking-[0.3em] uppercase block" data-i18n="about_subtitle">Философия & Традиции</span>
+                    <h2 class="font-serif text-4xl sm:text-5xl font-bold text-white leading-tight" data-i18n="about_title">Гармония традиции и современного кулинарного искусства</h2>
+                    <p class="text-gray-300 leading-relaxed font-light text-sm sm:text-base" data-i18n="about_desc1">
+                        В ресторане KEKEEV мы верим, что еда — это не просто утоление голода, а глубокий эстетический и чувственный опыт. Каждая деталь нашего интерьера и меню продумана до совершенства.
+                    </p>
+                    <p class="text-gray-400 leading-relaxed font-light text-sm sm:text-base" data-i18n="about_desc2">
+                        Наш шеф-повар объединяет редкие европейские техники с богатыми традициями центральноазиатского вкусового спектра, создавая уникальную эногастрономическую палитру.
+                    </p>
+
+                    <!-- Quote Box -->
+                    <div class="glass-card p-6 rounded-xl border-l-4 border-l-gold-500 mt-6">
+                        <p class="font-serif italic text-lg text-gold-300" data-i18n="about_quote">
+                            «Моя цель — удивлять гостей не только визуальной эстетикой, но и создавать вкусы, которые остаются в памяти навсегда.»
+                        </p>
+                        <div class="mt-4 flex items-center justify-between">
+                            <div>
+                                <h4 class="font-bold text-white text-sm">Данияр Кекеев</h4>
+                                <span class="text-xs text-gray-400 uppercase tracking-widest" data-i18n="about_chef_role">Бренд-Шеф и Основатель</span>
+                            </div>
+                            <i class="fa-solid fa-signature text-3xl text-gold-500/40"></i>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY SECTION -->
+    <section id="gallery" class="py-24 bg-obsidian">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-gold-500 text-xs font-semibold tracking-[0.3em] uppercase block mb-3" data-i18n="gallery_subtitle">Атмосфера KEKEEV</span>
+                <h2 class="font-serif text-4xl sm:text-5xl font-bold text-white mb-6" data-i18n="gallery_title">Фотогалерея Ресторана</h2>
+                <div class="w-16 h-[2px] gold-gradient-bg mx-auto"></div>
+            </div>
+
+            <!-- Gallery Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div onclick="openLightbox('https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80')" class="group relative h-72 rounded-xl overflow-hidden cursor-pointer border border-gold-500/20">
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=600&q=80" alt="VIP Hall" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6">
+                        <span class="text-gold-400 text-xs font-bold uppercase tracking-widest">Интерьер</span>
+                        <h4 class="text-white font-serif text-xl font-bold">Главный обеденный зал</h4>
+                    </div>
+                </div>
+
+                <div onclick="openLightbox('https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80')" class="group relative h-72 rounded-xl overflow-hidden cursor-pointer border border-gold-500/20">
+                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=600&q=80" alt="Steak Plating" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6">
+                        <span class="text-gold-400 text-xs font-bold uppercase tracking-widest">Кухня</span>
+                        <h4 class="text-white font-serif text-xl font-bold">Премиальный Стейк Томагавк</h4>
+                    </div>
+                </div>
+
+                <div onclick="openLightbox('https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=1200&q=80')" class="group relative h-72 rounded-xl overflow-hidden cursor-pointer border border-gold-500/20">
+                    <img src="https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?auto=format&fit=crop&w=600&q=80" alt="Wine Cellar" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6">
+                        <span class="text-gold-400 text-xs font-bold uppercase tracking-widest">Энотека</span>
+                        <h4 class="text-white font-serif text-xl font-bold">Коллекция элитных вин</h4>
+                    </div>
+                </div>
+
+                <div onclick="openLightbox('https://images.unsplash.com/photo-1543007630-9710e4a00a20?auto=format&fit=crop&w=1200&q=80')" class="group relative h-72 rounded-xl overflow-hidden cursor-pointer border border-gold-500/20">
+                    <img src="https://images.unsplash.com/photo-1543007630-9710e4a00a20?auto=format&fit=crop&w=600&q=80" alt="Cocktail Bar" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6">
+                        <span class="text-gold-400 text-xs font-bold uppercase tracking-widest">Бар</span>
+                        <h4 class="text-white font-serif text-xl font-bold">Авторская коктейльная стойка</h4>
+                    </div>
+                </div>
+
+                <div onclick="openLightbox('https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=1200&q=80')" class="group relative h-72 rounded-xl overflow-hidden cursor-pointer border border-gold-500/20">
+                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=600&q=80" alt="Dessert Art" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6">
+                        <span class="text-gold-400 text-xs font-bold uppercase tracking-widest">Десерты</span>
+                        <h4 class="text-white font-serif text-xl font-bold">Фирменная подача</h4>
+                    </div>
+                </div>
+
+                <div onclick="openLightbox('https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=1200&q=80')" class="group relative h-72 rounded-xl overflow-hidden cursor-pointer border border-gold-500/20">
+                    <img src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=600&q=80" alt="Terrace" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex flex-col justify-end p-6">
+                        <span class="text-gold-400 text-xs font-bold uppercase tracking-widest">Терраса</span>
+                        <h4 class="text-white font-serif text-xl font-bold">Летняя панорамная зона</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TABLE RESERVATION SYSTEM SECTION -->
+    <section id="reservation" class="py-24 bg-espresso relative border-t border-gold-500/10">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <span class="text-gold-500 text-xs font-semibold tracking-[0.3em] uppercase block mb-3" data-i18n="res_subtitle">Онлайн Резервация</span>
+                <h2 class="font-serif text-4xl sm:text-5xl font-bold text-white mb-4" data-i18n="res_title">Забронировать Стол</h2>
+                <p class="text-gray-400 text-sm font-light" data-i18n="res_desc">Выберите предпочитаемую дату, время и зону для вашего незабываемого вечера.</p>
+            </div>
+
+            <!-- Reservation Form Card -->
+            <div class="glass-card p-6 sm:p-10 rounded-2xl shadow-2xl gold-border-glow border border-gold-500/30">
+                <form id="reservation-form" onsubmit="handleReservationSubmit(event)" class="space-y-6">
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <!-- Name -->
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider text-gray-300 font-medium mb-2" data-i18n="form_name">Ваше имя *</label>
+                            <input type="text" id="res-name" required placeholder="Александр Кекеев" class="w-full bg-obsidian/80 border border-gold-500/30 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-gold-500 transition-colors">
+                        </div>
+
+                        <!-- Phone -->
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider text-gray-300 font-medium mb-2" data-i18n="form_phone">Телефон *</label>
+                            <input type="tel" id="res-phone" required placeholder="+996 (___) __-__-__" class="w-full bg-obsidian/80 border border-gold-500/30 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-gold-500 transition-colors">
+                        </div>
+
+                        <!-- Guests -->
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider text-gray-300 font-medium mb-2" data-i18n="form_guests">Количество гостей</label>
+                            <select id="res-guests" class="w-full bg-obsidian border border-gold-500/30 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-gold-500 transition-colors">
+                                <option>1 Персона</option>
+                                <option selected>2 Персоны (Романтический ужин)</option>
+                                <option>3-4 Персоны</option>
+                                <option>5-8 Персон (Компания)</option>
+                                <option>VIP Зал (Банкет 10+)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <!-- Date -->
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider text-gray-300 font-medium mb-2" data-i18n="form_date">Дата визита *</label>
+                            <input type="date" id="res-date" required class="w-full bg-obsidian/80 border border-gold-500/30 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-gold-500 transition-colors">
+                        </div>
+
+                        <!-- Time Slot -->
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider text-gray-300 font-medium mb-2" data-i18n="form_time">Время *</label>
+                            <select id="res-time" class="w-full bg-obsidian border border-gold-500/30 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-gold-500 transition-colors">
+                                <option>12:00 (Обед)</option>
+                                <option>14:00</option>
+                                <option>16:00</option>
+                                <option selected>18:00 (Вечер)</option>
+                                <option>20:00 (Ужин)</option>
+                                <option>22:00</option>
+                            </select>
+                        </div>
+
+                        <!-- Zone Selection -->
+                        <div>
+                            <label class="block text-xs uppercase tracking-wider text-gray-300 font-medium mb-2" data-i18n="form_zone">Предпочитаемая зона</label>
+                            <select id="res-zone" class="w-full bg-obsidian border border-gold-500/30 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-gold-500 transition-colors">
+                                <option>Главный Зал</option>
+                                <option>Панорамная Терраса</option>
+                                <option>VIP Ложа у камина</option>
+                                <option>Барная зона</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Special Requests -->
+                    <div>
+                        <label class="block text-xs uppercase tracking-wider text-gray-300 font-medium mb-2" data-i18n="form_notes">Особые пожелания (повод, аллергии, торт)</label>
+                        <textarea id="res-notes" rows="3" placeholder="Укажите, если у вас День Рождения или романтическая годовщина..." class="w-full bg-obsidian/80 border border-gold-500/30 rounded-lg px-4 py-3 text-sm text-white focus:outline-none focus:border-gold-500 transition-colors"></textarea>
+                    </div>
+
+                    <div class="text-center pt-4">
+                        <button type="submit" class="w-full sm:w-auto px-12 py-4 text-xs font-bold uppercase tracking-[0.2em] text-black gold-gradient-bg rounded-full hover:shadow-xl hover:shadow-gold-500/30 transform hover:-translate-y-0.5 transition-all">
+                            <span data-i18n="form_submit">Подтвердить Бронирование</span>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- AUTHENTICATION MODAL (LOGIN / REGISTER) -->
+    <div id="auth-modal" class="fixed inset-0 bg-black/90 z-50 hidden flex items-center justify-center p-4 backdrop-blur-md">
+        <div class="glass-card w-full max-w-md rounded-2xl p-8 border border-gold-500/30 relative gold-border-glow">
+            <button onclick="toggleAuthModal(false)" class="absolute top-4 right-4 text-gray-400 hover:text-gold-500 text-xl">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <!-- Tabs Navigation -->
+            <div class="flex border-b border-gold-500/20 mb-6">
+                <button onclick="switchAuthTab('login')" id="tab-btn-login" class="flex-1 py-3 text-xs font-bold uppercase tracking-widest text-gold-500 border-b-2 border-gold-500 transition-all">Вход</button>
+                <button onclick="switchAuthTab('register')" id="tab-btn-register" class="flex-1 py-3 text-xs font-bold uppercase tracking-widest text-gray-400 hover:text-white transition-all">Регистрация</button>
+            </div>
+
+            <!-- LOGIN FORM -->
+            <form id="form-login" onsubmit="handleLogin(event)" class="space-y-4">
+                <div>
+                    <label class="block text-xs uppercase text-gray-300 mb-1">Email или Телефон</label>
+                    <input type="text" id="login-email" required placeholder="alex@kekeev.kg" class="w-full bg-obsidian border border-gold-500/30 rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none focus:border-gold-500">
+                </div>
+                <div>
+                    <label class="block text-xs uppercase text-gray-300 mb-1">Пароль</label>
+                    <input type="password" id="login-pass" required placeholder="••••••••" class="w-full bg-obsidian border border-gold-500/30 rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none focus:border-gold-500">
+                </div>
+                <div class="flex justify-between items-center text-xs">
+                    <label class="flex items-center text-gray-400">
+                        <input type="checkbox" checked class="accent-gold-500 mr-2"> Запомнить меня
+                    </label>
+                    <a href="#" onclick="showToast('Ссылка для сброса отправлена на ваш Email')" class="text-gold-400 hover:underline">Забыли пароль?</a>
+                </div>
+                <button type="submit" class="w-full py-3.5 mt-4 text-xs font-bold uppercase tracking-widest text-black gold-gradient-bg rounded-full hover:shadow-lg transition-all">
+                    Войти в кабинет
+                </button>
+            </form>
+
+            <!-- REGISTER FORM -->
+            <form id="form-register" onsubmit="handleRegister(event)" class="space-y-4 hidden">
+                <div>
+                    <label class="block text-xs uppercase text-gray-300 mb-1">Полное Имя</label>
+                    <input type="text" id="reg-name" required placeholder="Александр Кекеев" class="w-full bg-obsidian border border-gold-500/30 rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none focus:border-gold-500">
+                </div>
+                <div>
+                    <label class="block text-xs uppercase text-gray-300 mb-1">Email адрес</label>
+                    <input type="email" id="reg-email" required placeholder="alex@kekeev.kg" class="w-full bg-obsidian border border-gold-500/30 rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none focus:border-gold-500">
+                </div>
+                <div>
+                    <label class="block text-xs uppercase text-gray-300 mb-1">Телефон</label>
+                    <input type="tel" id="reg-phone" required placeholder="+996 (555) 123-456" class="w-full bg-obsidian border border-gold-500/30 rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none focus:border-gold-500">
+                </div>
+                <div>
+                    <label class="block text-xs uppercase text-gray-300 mb-1">Пароль</label>
+                    <input type="password" id="reg-pass" required placeholder="••••••••" class="w-full bg-obsidian border border-gold-500/30 rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none focus:border-gold-500">
+                </div>
+                <button type="submit" class="w-full py-3.5 mt-4 text-xs font-bold uppercase tracking-widest text-black gold-gradient-bg rounded-full hover:shadow-lg transition-all">
+                    Создать Аккаунт
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- USER PROFILE MODAL (PERSONAL CABINET) -->
+    <div id="profile-modal" class="fixed inset-0 bg-black/90 z-50 hidden flex items-center justify-center p-4 backdrop-blur-md overflow-y-auto">
+        <div class="glass-card w-full max-w-4xl rounded-2xl p-6 sm:p-8 border border-gold-500/30 relative gold-border-glow my-8">
+            <button onclick="toggleProfileModal(false)" class="absolute top-4 right-4 text-gray-400 hover:text-gold-500 text-xl z-10">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Profile Sidebar & Card -->
+                <div class="lg:col-span-1 space-y-6">
+                    <div class="text-center p-6 border border-gold-500/20 rounded-xl bg-obsidian/50">
+                        <div class="relative w-24 h-24 mx-auto mb-4">
+                            <img id="user-avatar" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80" class="w-full h-full object-cover rounded-full border-2 border-gold-500">
+                            <button onclick="changeAvatar()" class="absolute bottom-0 right-0 w-8 h-8 rounded-full gold-gradient-bg text-black text-xs flex items-center justify-center shadow-lg"><i class="fa-solid fa-camera"></i></button>
+                        </div>
+                        <h3 id="profile-display-name" class="font-serif text-2xl font-bold text-white">Александр</h3>
+                        <p id="profile-display-email" class="text-xs text-gray-400 mb-4">alex@kekeev.kg</p>
+                        <span class="inline-block px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-gold-500/20 text-gold-400 border border-gold-500/30">VIP Gold Member</span>
+                    </div>
+
+                    <!-- Virtual Loyalty Card -->
+                    <div class="rounded-xl p-5 border border-gold-500/40 relative overflow-hidden bg-gradient-to-br from-espresso via-black to-gold-900 shadow-2xl">
+                        <div class="flex justify-between items-start mb-6">
+                            <div>
+                                <i class="fa-solid fa-crown text-gold-500 text-lg"></i>
+                                <span class="font-serif text-sm font-bold tracking-widest text-white ml-2">KEKEEV CARD</span>
+                            </div>
+                            <span class="text-[10px] uppercase tracking-widest text-gold-400 font-bold">10% OFF</span>
+                        </div>
+                        <div class="text-xs text-gray-400 mb-1">Баланс Бонусов</div>
+                        <div id="loyalty-points" class="font-serif text-3xl font-bold gold-gradient-text mb-4">1 250 PTS</div>
+                        <div class="flex justify-between text-[10px] text-gray-400 uppercase tracking-wider border-t border-gold-500/20 pt-3">
+                            <span>ID: 8840-2026</span>
+                            <span id="loyalty-name">Александр К.</span>
+                        </div>
+                    </div>
+
+                    <!-- Profile Tabs Navigation -->
+                    <div class="flex flex-col space-y-2 text-xs uppercase tracking-wider font-semibold">
+                        <button onclick="switchProfileTab('info')" id="prof-tab-info" class="w-full text-left px-4 py-3 rounded-xl bg-gold-500/20 text-gold-400 border border-gold-500/30">Личные данные</button>
+                        <button onclick="switchProfileTab('res')" id="prof-tab-res" class="w-full text-left px-4 py-3 rounded-xl bg-obsidian text-gray-400 hover:text-white border border-gold-500/10">Мои Бронирования</button>
+                        <button onclick="switchProfileTab('orders')" id="prof-tab-orders" class="w-full text-left px-4 py-3 rounded-xl bg-obsidian text-gray-400 hover:text-white border border-gold-500/10">История Заказов</button>
+                    </div>
+                </div>
+
+                <!-- Profile Tab Content -->
+                <div class="lg:col-span-2">
+                    
+                    <!-- TAB 1: Personal Info -->
+                    <div id="prof-content-info" class="space-y-6">
+                        <h3 class="font-serif text-2xl font-bold text-white border-b border-gold-500/20 pb-3">Редактировать Данные</h3>
+                        <form onsubmit="saveProfileData(event)" class="space-y-4">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs uppercase text-gray-300 mb-1">Имя</label>
+                                    <input type="text" id="prof-input-name" class="w-full bg-obsidian border border-gold-500/30 rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none focus:border-gold-500">
+                                </div>
+                                <div>
+                                    <label class="block text-xs uppercase text-gray-300 mb-1">Email</label>
+                                    <input type="email" id="prof-input-email" class="w-full bg-obsidian border border-gold-500/30 rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none focus:border-gold-500">
+                                </div>
+                            </div>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs uppercase text-gray-300 mb-1">Телефон</label>
+                                    <input type="tel" id="prof-input-phone" class="w-full bg-obsidian border border-gold-500/30 rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none focus:border-gold-500">
+                                </div>
+                                <div>
+                                    <label class="block text-xs uppercase text-gray-300 mb-1">Дата Рождения</label>
+                                    <input type="date" id="prof-input-dob" value="1992-05-14" class="w-full bg-obsidian border border-gold-500/30 rounded-lg px-4 py-2.5 text-sm text-white focus:outline-none focus:border-gold-500">
+                                </div>
+                            </div>
+                            <div class="pt-4 flex justify-between items-center">
+                                <button type="submit" class="px-8 py-3 text-xs font-bold uppercase tracking-widest text-black gold-gradient-bg rounded-full">Сохранить</button>
+                                <button type="button" onclick="logoutUser()" class="text-xs text-red-400 hover:underline uppercase font-bold">Выйти из аккаунта</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- TAB 2: Reservations -->
+                    <div id="prof-content-res" class="space-y-6 hidden">
+                        <h3 class="font-serif text-2xl font-bold text-white border-b border-gold-500/20 pb-3">Мои Бронирования</h3>
+                        <div id="user-res-list" class="space-y-4 max-h-[350px] overflow-y-auto no-scrollbar">
+                            <!-- JS Populated -->
+                        </div>
+                    </div>
+
+                    <!-- TAB 3: Order History -->
+                    <div id="prof-content-orders" class="space-y-6 hidden">
+                        <h3 class="font-serif text-2xl font-bold text-white border-b border-gold-500/20 pb-3">История Заказов</h3>
+                        <div id="user-orders-list" class="space-y-4 max-h-[350px] overflow-y-auto no-scrollbar">
+                            <!-- JS Populated -->
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SHOPPING CART DRAWER (SIDE MODAL) -->
+    <div id="cart-drawer" class="fixed inset-0 bg-black/80 z-50 transform translate-x-full transition-transform duration-300 backdrop-blur-sm">
+        <div class="absolute right-0 top-0 bottom-0 w-full max-w-md bg-obsidian border-l border-gold-500/30 flex flex-col justify-between p-6">
+            <div>
+                <div class="flex items-center justify-between pb-4 border-b border-gold-500/20">
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-bag-shopping text-gold-500"></i>
+                        <h3 class="font-serif text-2xl font-bold text-white">Ваш Предзаказ</h3>
+                    </div>
+                    <button onclick="toggleCartDrawer(false)" class="text-gray-400 hover:text-gold-500 text-xl p-1">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+
+                <!-- Items list -->
+                <div id="cart-items" class="mt-6 space-y-4 max-h-[55vh] overflow-y-auto no-scrollbar pr-1">
+                    <!-- JavaScript dynamic rendering -->
+                </div>
+            </div>
+
+            <!-- Total & Checkout Button -->
+            <div class="pt-4 border-t border-gold-500/20">
+                <div class="flex justify-between items-center mb-4">
+                    <span class="text-xs uppercase tracking-wider text-gray-400">Итого к оплате:</span>
+                    <span id="cart-total" class="font-serif text-2xl font-bold text-gold-400">0 KGS</span>
+                </div>
+                <button onclick="handleCheckout()" class="w-full py-4 text-xs font-bold uppercase tracking-[0.2em] text-black gold-gradient-bg rounded-full hover:shadow-lg hover:shadow-gold-500/30 transition-all">
+                    Оформить Предзаказ / Доставку
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- LIGHTBOX MODAL FOR GALLERY -->
+    <div id="lightbox" class="fixed inset-0 bg-black/95 z-50 hidden flex items-center justify-center p-4" onclick="closeLightbox()">
+        <button class="absolute top-6 right-6 text-white hover:text-gold-500 text-3xl">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <img id="lightbox-img" src="" alt="Enlarged view" class="max-w-full max-h-[90vh] rounded-lg border border-gold-500/40 shadow-2xl">
+    </div>
+
+    <!-- NOTIFICATION TOAST -->
+    <div id="toast" class="fixed bottom-6 right-6 bg-gold-500 text-black px-6 py-3 rounded-full font-bold text-xs uppercase tracking-wider shadow-2xl transform translate-y-24 opacity-0 transition-all duration-300 z-50 flex items-center gap-2">
+        <i class="fa-solid fa-circle-check"></i>
+        <span id="toast-message">Успешно добавлено!</span>
+    </div>
+
+    <!-- JAVASCRIPT APPLICATION LOGIC -->
+    <script>
+        // Dishes Data Store
+        const menuItems = [
+            {
+                id: 1,
+                title: "Стейк Томагавк Dry-Aged",
+                category: "mains",
+                price: 3800,
+                badge: "Шеф-выбор",
+                desc: "Выдержанный 45 дней премиальный стейк из мраморной говядины с розмариновым маслом.",
+                img: "https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                id: 2,
+                title: "Филе Лосося с Трюфельным Пюре",
+                category: "mains",
+                price: 2400,
+                badge: "Бестселлер",
+                desc: "Дикий атлантический лосось со сливочно-трюфельным соусом и спаржей.",
+                img: "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                id: 3,
+                title: "Тартар из Говядины с Авокадо",
+                category: "starters",
+                price: 1400,
+                badge: "Новинка",
+                desc: "Свежайшая вырезка с перепелиным яйцом, каплями балсамика и хрустящей бриошью.",
+                img: "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                id: 4,
+                title: "Салат с Гранатом и Бурратой",
+                category: "starters",
+                price: 1100,
+                badge: "",
+                desc: "Итальянская буррата, свежие томаты, спелый гранат и фирменное песто.",
+                img: "https://images.unsplash.com/photo-1592417817098-8f3d6ef23a85?auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                id: 5,
+                title: "Золотой Шоколадный Фондан",
+                category: "desserts",
+                price: 850,
+                badge: "Премиум",
+                desc: "Бельгийский тёмный шоколад 70%, сусальное золото и шарик ванильного джелато.",
+                img: "https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=600&q=80"
+            },
+            {
+                id: 6,
+                title: "Авторский Коктейль «KEKEEV Gold»",
+                category: "drinks",
+                price: 950,
+                badge: "Signature",
+                desc: "Премиальный бурбон, маракуйя, съедобные золотые блёстки и дымная нота.",
+                img: "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&w=600&q=80"
+            }
+        ];
+
+        // Language Translation Dictionaries
+        const i18nData = {
+            RU: {
+                nav_home: "Главная", nav_menu: "Меню", nav_about: "О нас", nav_gallery: "Галерея",
+                nav_reservation: "Бронирование", nav_reviews: "Отзывы", nav_contacts: "Контакты",
+                btn_reserve: "Забронировать", hero_badge: "Премиальный ресторан Бишкека",
+                hero_title_sub: "— Искусство вкуса", hero_subtitle: "Погрузитесь в атмосферу высокой европейской и авторской кухни, где каждое блюдо — это кулинарный шедевр от лучшего шеф-повара.",
+                hero_btn_menu: "Посмотреть меню", hero_btn_reserve: "Забронировать стол",
+                stat_1: "Лет совершенства", stat_2: "Мишлен Шефа", stat_3: "Органика & Свежесть", stat_4: "Рейтинг клиентов",
+                menu_subtitle: "Гастрономическая коллекция", menu_title: "Изысканное Меню",
+                cat_all: "Все блюда", cat_mains: "Горячие блюда", cat_starters: "Закуски & Салаты", cat_desserts: "Десерты", cat_drinks: "Авторские Напитки"
+            },
+            KG: {
+                nav_home: "Башкы", nav_menu: "Меню", nav_about: "Биз жөнүндө", nav_gallery: "Галерея",
+                nav_reservation: "Ээлөө", nav_reviews: "Пикирлер", nav_contacts: "Байланыш",
+                btn_reserve: "Орун ээлөө", hero_badge: "Бишкектеги премиум ресторан",
+                hero_title_sub: "— Даам өнөрү", hero_subtitle: "Жогорку европалык жана автордук ашкананын атмосферасына чөмүлүңүз.",
+                hero_btn_menu: "Менюну көрүү", hero_btn_reserve: "Стол ээлөө",
+                stat_1: "Жыл тажрыйба", stat_2: "Мишлен Шефтери", stat_3: "100% Табигый", stat_4: "Кардарлар баасы",
+                menu_subtitle: "Гастрономиялык коллекция", menu_title: "Кереметтүү Меню",
+                cat_all: "Бардык тамактар", cat_mains: "Ысык тамактар", cat_starters: "Салаттар", cat_desserts: "Таттуулар", cat_drinks: "Суусундуктар"
+            },
+            EN: {
+                nav_home: "Home", nav_menu: "Menu", nav_about: "About Us", nav_gallery: "Gallery",
+                nav_reservation: "Reservation", nav_reviews: "Reviews", nav_contacts: "Contacts",
+                btn_reserve: "Book a Table", hero_badge: "Bishkek Fine Dining Experience",
+                hero_title_sub: "— The Art of Taste", hero_subtitle: "Immerse yourself in fine European & haute cuisine, where every dish is a culinary masterpiece.",
+                hero_btn_menu: "View Menu", hero_btn_reserve: "Book Table",
+                stat_1: "Years of Excellence", stat_2: "Michelin Chefs", stat_3: "100% Organic", stat_4: "Guest Rating",
+                menu_subtitle: "Gastronomic Collection", menu_title: "Exquisite Menu",
+                cat_all: "All Dishes", cat_mains: "Main Courses", cat_starters: "Starters & Salads", cat_desserts: "Desserts", cat_drinks: "Signature Drinks"
+            }
+        };
+
+        let currentLang = 'RU';
+        let cart = [];
+        let currentUser = JSON.parse(localStorage.getItem('kekeev_user')) || null;
+        let userReservations = JSON.parse(localStorage.getItem('kekeev_reservations')) || [
+            { id: 'RES-904', date: '2026-03-20', time: '19:00', zone: 'VIP Ложа у камина', guests: '2 Персоны', status: 'Подтверждено' }
+        ];
+        let userOrders = JSON.parse(localStorage.getItem('kekeev_orders')) || [
+            { id: 'ORD-102', date: '2026-02-14', items: 'Стейк Томагавк x1, Авторский Коктейль x2', total: 5700, status: 'Завершено' }
+        ];
+
+        // RENDER AUTH HEADER WIDGET
+        function renderAuthHeader() {
+            const widget = document.getElementById('auth-header-widget');
+            if (currentUser) {
+                widget.innerHTML = `
+                    <div class="relative group">
+                        <button onclick="toggleProfileModal(true)" class="flex items-center space-x-2 border border-gold-500/40 rounded-full px-3 py-1 bg-obsidian/60 hover:border-gold-500 transition-colors">
+                            <img src="${currentUser.avatar || 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80'}" class="w-6 h-6 rounded-full object-cover border border-gold-500">
+                            <span class="text-xs font-bold text-white max-w-[80px] truncate">${currentUser.name}</span>
+                        </button>
+                    </div>
+                `;
+                // Auto-fill forms if user is logged in
+                if (document.getElementById('res-name')) document.getElementById('res-name').value = currentUser.name;
+                if (document.getElementById('res-phone')) document.getElementById('res-phone').value = currentUser.phone || '';
+            } else {
+                widget.innerHTML = `
+                    <button onclick="toggleAuthModal(true)" class="text-xs font-bold uppercase tracking-wider text-gold-400 hover:text-white border border-gold-500/40 hover:border-gold-500 rounded-full px-4 py-2 transition-colors">
+                        Войти
+                    </button>
+                `;
+            }
+        }
+
+        // AUTH MODAL LOGIC
+        function toggleAuthModal(open) {
+            const modal = document.getElementById('auth-modal');
+            if (open) modal.classList.remove('hidden');
+            else modal.classList.add('hidden');
+        }
+
+        function switchAuthTab(tab) {
+            const loginForm = document.getElementById('form-login');
+            const regForm = document.getElementById('form-register');
+            const loginBtn = document.getElementById('tab-btn-login');
+            const regBtn = document.getElementById('tab-btn-register');
+
+            if (tab === 'login') {
+                loginForm.classList.remove('hidden');
+                regForm.classList.add('hidden');
+                loginBtn.className = "flex-1 py-3 text-xs font-bold uppercase tracking-widest text-gold-500 border-b-2 border-gold-500 transition-all";
+                regBtn.className = "flex-1 py-3 text-xs font-bold uppercase tracking-widest text-gray-400 hover:text-white transition-all";
+            } else {
+                loginForm.classList.add('hidden');
+                regForm.classList.remove('hidden');
+                regBtn.className = "flex-1 py-3 text-xs font-bold uppercase tracking-widest text-gold-500 border-b-2 border-gold-500 transition-all";
+                loginBtn.className = "flex-1 py-3 text-xs font-bold uppercase tracking-widest text-gray-400 hover:text-white transition-all";
+            }
+        }
+
+        function handleLogin(e) {
+            e.preventDefault();
+            const email = document.getElementById('login-email').value;
+            currentUser = {
+                name: email.split('@')[0],
+                email: email,
+                phone: '+996 (555) 123-456',
+                avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80',
+                points: 1250
+            };
+            localStorage.setItem('kekeev_user', JSON.stringify(currentUser));
+            renderAuthHeader();
+            toggleAuthModal(false);
+            showToast(`С возвращением, ${currentUser.name}!`);
+        }
+
+        function handleRegister(e) {
+            e.preventDefault();
+            const name = document.getElementById('reg-name').value;
+            const email = document.getElementById('reg-email').value;
+            const phone = document.getElementById('reg-phone').value;
+            currentUser = {
+                name: name,
+                email: email,
+                phone: phone,
+                avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80',
+                points: 500
+            };
+            localStorage.setItem('kekeev_user', JSON.stringify(currentUser));
+            renderAuthHeader();
+            toggleAuthModal(false);
+            showToast("Регистрация успешна! Вам начислено 500 приветственных бонусов.");
+        }
+
+        function logoutUser() {
+            currentUser = null;
+            localStorage.removeItem('kekeev_user');
+            renderAuthHeader();
+            toggleProfileModal(false);
+            showToast("Вы вышли из системы");
+        }
+
+        // PROFILE MODAL LOGIC
+        function toggleProfileModal(open) {
+            const modal = document.getElementById('profile-modal');
+            if (open) {
+                if (!currentUser) {
+                    toggleAuthModal(true);
+                    return;
+                }
+                updateProfileModalUI();
+                modal.classList.remove('hidden');
+            } else {
+                modal.classList.add('hidden');
+            }
+        }
+
+        function updateProfileModalUI() {
+            if (!currentUser) return;
+            document.getElementById('profile-display-name').innerText = currentUser.name;
+            document.getElementById('profile-display-email').innerText = currentUser.email;
+            document.getElementById('loyalty-name').innerText = currentUser.name;
+            document.getElementById('loyalty-points').innerText = `${currentUser.points || 1250} PTS`;
+            document.getElementById('user-avatar').src = currentUser.avatar;
+
+            document.getElementById('prof-input-name').value = currentUser.name;
+            document.getElementById('prof-input-email').value = currentUser.email;
+            document.getElementById('prof-input-phone').value = currentUser.phone || '';
+
+            renderUserReservations();
+            renderUserOrders();
+        }
+
+        function switchProfileTab(tab) {
+            const infoContent = document.getElementById('prof-content-info');
+            const resContent = document.getElementById('prof-content-res');
+            const ordersContent = document.getElementById('prof-content-orders');
+
+            const tabInfo = document.getElementById('prof-tab-info');
+            const tabRes = document.getElementById('prof-tab-res');
+            const tabOrders = document.getElementById('prof-tab-orders');
+
+            infoContent.classList.add('hidden');
+            resContent.classList.add('hidden');
+            ordersContent.classList.add('hidden');
+
+            tabInfo.className = "w-full text-left px-4 py-3 rounded-xl bg-obsidian text-gray-400 hover:text-white border border-gold-500/10";
+            tabRes.className = "w-full text-left px-4 py-3 rounded-xl bg-obsidian text-gray-400 hover:text-white border border-gold-500/10";
+            tabOrders.className = "w-full text-left px-4 py-3 rounded-xl bg-obsidian text-gray-400 hover:text-white border border-gold-500/10";
+
+            if (tab === 'info') {
+                infoContent.classList.remove('hidden');
+                tabInfo.className = "w-full text-left px-4 py-3 rounded-xl bg-gold-500/20 text-gold-400 border border-gold-500/30";
+            } else if (tab === 'res') {
+                resContent.classList.remove('hidden');
+                tabRes.className = "w-full text-left px-4 py-3 rounded-xl bg-gold-500/20 text-gold-400 border border-gold-500/30";
+            } else if (tab === 'orders') {
+                ordersContent.classList.remove('hidden');
+                tabOrders.className = "w-full text-left px-4 py-3 rounded-xl bg-gold-500/20 text-gold-400 border border-gold-500/30";
+            }
+        }
+
+        function saveProfileData(e) {
+            e.preventDefault();
+            currentUser.name = document.getElementById('prof-input-name').value;
+            currentUser.email = document.getElementById('prof-input-email').value;
+            currentUser.phone = document.getElementById('prof-input-phone').value;
+
+            localStorage.setItem('kekeev_user', JSON.stringify(currentUser));
+            renderAuthHeader();
+            updateProfileModalUI();
+            showToast("Данные профиля обновлены");
+        }
+
+        function changeAvatar() {
+            const avatars = [
+                "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=300&q=80",
+                "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80",
+                "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=300&q=80"
+            ];
+            const nextIndex = (avatars.indexOf(currentUser.avatar) + 1) % avatars.length;
+            currentUser.avatar = avatars[nextIndex];
+            localStorage.setItem('kekeev_user', JSON.stringify(currentUser));
+            updateProfileModalUI();
+            renderAuthHeader();
+        }
+
+        function renderUserReservations() {
+            const container = document.getElementById('user-res-list');
+            if (userReservations.length === 0) {
+                container.innerHTML = `<p class="text-xs text-gray-500">У вас нет активных бронирований</p>`;
+                return;
+            }
+            container.innerHTML = userReservations.map(res => `
+                <div class="glass-card p-4 rounded-xl flex justify-between items-center border border-gold-500/20">
+                    <div>
+                        <div class="flex items-center gap-2 mb-1">
+                            <span class="text-xs font-bold text-white">${res.id}</span>
+                            <span class="text-[10px] px-2 py-0.5 rounded-full bg-gold-500/20 text-gold-400 border border-gold-500/30 font-bold">${res.status}</span>
+                        </div>
+                        <p class="text-xs text-gray-300">${res.date} в ${res.time} • ${res.zone}</p>
+                        <p class="text-[10px] text-gray-500">${res.guests}</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderUserOrders() {
+            const container = document.getElementById('user-orders-list');
+            if (userOrders.length === 0) {
+                container.innerHTML = `<p class="text-xs text-gray-500">История заказов пуста</p>`;
+                return;
+            }
+            container.innerHTML = userOrders.map(ord => `
+                <div class="glass-card p-4 rounded-xl flex justify-between items-center border border-gold-500/20">
+                    <div>
+                        <div class="flex items-center gap-2 mb-1">
+                            <span class="text-xs font-bold text-white">${ord.id}</span>
+                            <span class="text-[10px] text-gray-400">${ord.date}</span>
+                        </div>
+                        <p class="text-xs text-gray-300 mb-1">${ord.items}</p>
+                        <span class="text-xs font-bold text-gold-400">${ord.total} KGS</span>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Render Menu Items
+        function renderMenu(items) {
+            const container = document.getElementById('menu-grid');
+            container.innerHTML = items.map(dish => `
+                <div class="glass-card rounded-2xl overflow-hidden border border-gold-500/20 group hover:border-gold-500/50 transition-all duration-300 flex flex-col justify-between">
+                    <div>
+                        <div class="relative h-56 overflow-hidden">
+                            <img src="${dish.img}" alt="${dish.title}" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700">
+                            ${dish.badge ? `<span class="absolute top-4 left-4 bg-gold-500 text-black font-bold text-[10px] uppercase tracking-wider px-3 py-1 rounded-full shadow-lg">${dish.badge}</span>` : ''}
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-serif text-xl font-bold text-white group-hover:text-gold-400 transition-colors">${dish.title}</h3>
+                            </div>
+                            <p class="text-gray-400 text-xs leading-relaxed font-light mb-6">${dish.desc}</p>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0 flex items-center justify-between border-t border-gold-500/10">
+                        <span class="font-serif text-xl font-bold text-gold-400">${dish.price} KGS</span>
+                        <button onclick="addToCart(${dish.id})" class="px-4 py-2 text-xs font-bold uppercase tracking-wider text-black gold-gradient-bg rounded-full hover:shadow-lg hover:shadow-gold-500/30 transition-all flex items-center gap-1.5">
+                            <i class="fa-solid fa-plus text-[10px]"></i>
+                            <span>Заказать</span>
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Filter Menu Categories
+        function filterMenu(cat) {
+            document.querySelectorAll('.menu-tab').forEach(btn => {
+                if (btn.dataset.cat === cat) {
+                    btn.classList.add('bg-gold-500', 'text-black');
+                    btn.classList.remove('border', 'border-gold-500/30', 'text-gray-300');
+                } else {
+                    btn.classList.remove('bg-gold-500', 'text-black');
+                    btn.classList.add('border', 'border-gold-500/30', 'text-gray-300');
+                }
+            });
+
+            if (cat === 'all') {
+                renderMenu(menuItems);
+            } else {
+                renderMenu(menuItems.filter(item => item.category === cat));
+            }
+        }
+
+        // Cart Actions
+        function addToCart(id) {
+            const item = menuItems.find(d => d.id === id);
+            const existing = cart.find(c => c.id === id);
+            if (existing) {
+                existing.qty += 1;
+            } else {
+                cart.push({ ...item, qty: 1 });
+            }
+            updateCartUI();
+            showToast(`«${item.title}» добавлено в заказ!`);
+        }
+
+        function updateCartQty(id, delta) {
+            const item = cart.find(c => c.id === id);
+            if (item) {
+                item.qty += delta;
+                if (item.qty <= 0) {
+                    cart = cart.filter(c => c.id !== id);
+                }
+            }
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
+            const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+            
+            const badge = document.getElementById('cart-badge');
+            if (totalQty > 0) {
+                badge.innerText = totalQty;
+                badge.classList.remove('hidden');
+            } else {
+                badge.classList.add('hidden');
+            }
+
+            const itemsContainer = document.getElementById('cart-items');
+            if (cart.length === 0) {
+                itemsContainer.innerHTML = `<p class="text-center text-gray-500 text-xs py-8">Ваша корзина пуста</p>`;
+            } else {
+                itemsContainer.innerHTML = cart.map(item => `
+                    <div class="flex items-center justify-between glass-card p-3 rounded-xl">
+                        <div>
+                            <h4 class="text-white text-xs font-bold">${item.title}</h4>
+                            <span class="text-gold-400 text-xs">${item.price * item.qty} KGS</span>
+                        </div>
+                        <div class="flex items-center space-x-2 border border-gold-500/30 rounded-full px-2 py-1">
+                            <button onclick="updateCartQty(${item.id}, -1)" class="text-xs text-gray-400 hover:text-white px-1">-</button>
+                            <span class="text-xs text-white font-bold">${item.qty}</span>
+                            <button onclick="updateCartQty(${item.id}, 1)" class="text-xs text-gray-400 hover:text-white px-1">+</button>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            document.getElementById('cart-total').innerText = `${totalPrice} KGS`;
+        }
+
+        function toggleCartDrawer(open) {
+            const drawer = document.getElementById('cart-drawer');
+            if (open) {
+                drawer.classList.remove('translate-x-full');
+            } else {
+                drawer.classList.add('translate-x-full');
+            }
+        }
+
+        function toggleMobileMenu(open) {
+            const drawer = document.getElementById('mobile-drawer');
+            if (open) {
+                drawer.classList.remove('translate-x-full');
+            } else {
+                drawer.classList.add('translate-x-full');
+            }
+        }
+
+        // Language Switcher
+        function changeLanguage(lang) {
+            currentLang = lang;
+            document.getElementById('current-lang').innerText = lang;
+            const dictionary = i18nData[lang];
+
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (dictionary[key]) {
+                    el.innerText = dictionary[key];
+                }
+            });
+            showToast(`Язык изменен на ${lang}`);
+        }
+
+        // Handle Reservation Submission
+        function handleReservationSubmit(e) {
+            e.preventDefault();
+            const date = document.getElementById('res-date').value;
+            const time = document.getElementById('res-time').value;
+            const zone = document.getElementById('res-zone').value;
+            const guests = document.getElementById('res-guests').value;
+
+            const newRes = {
+                id: `RES-${Math.floor(100 + Math.random() * 900)}`,
+                date: date || '2026-04-10',
+                time: time,
+                zone: zone,
+                guests: guests,
+                status: 'Подтверждено'
+            };
+
+            userReservations.unshift(newRes);
+            localStorage.setItem('kekeev_reservations', JSON.stringify(userReservations));
+
+            if (currentUser) {
+                currentUser.points = (currentUser.points || 0) + 150;
+                localStorage.setItem('kekeev_user', JSON.stringify(currentUser));
+            }
+
+            showToast("Стол забронирован! Начислено 150 бонусов.");
+            e.target.reset();
+        }
+
+        // Handle Checkout Order
+        function handleCheckout() {
+            if (cart.length === 0) {
+                showToast("Добавьте блюда в корзину!");
+                return;
+            }
+
+            const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+            const itemsSummary = cart.map(i => `${i.title} x${i.qty}`).join(', ');
+
+            const newOrder = {
+                id: `ORD-${Math.floor(100 + Math.random() * 900)}`,
+                date: new Date().toISOString().split('T')[0],
+                items: itemsSummary,
+                total: totalPrice,
+                status: 'В обработке'
+            };
+
+            userOrders.unshift(newOrder);
+            localStorage.setItem('kekeev_orders', JSON.stringify(userOrders));
+
+            if (currentUser) {
+                currentUser.points = (currentUser.points || 0) + Math.floor(totalPrice * 0.05);
+                localStorage.setItem('kekeev_user', JSON.stringify(currentUser));
+            }
+
+            showToast("Заказ успешно оформлен и добавлен в историю!");
+            cart = [];
+            updateCartUI();
+            toggleCartDrawer(false);
+        }
+
+        // Lightbox Functions
+        function openLightbox(src) {
+            const lb = document.getElementById('lightbox');
+            document.getElementById('lightbox-img').src = src;
+            lb.classList.remove('hidden');
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.add('hidden');
+        }
+
+        // Toast Feedback Alert
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-message').innerText = msg;
+            toast.classList.remove('translate-y-24', 'opacity-0');
+            setTimeout(() => {
+                toast.classList.add('translate-y-24', 'opacity-0');
+            }, 3000);
+        }
+
+        // Initial Load
+        window.onload = function() {
+            renderMenu(menuItems);
+            renderAuthHeader();
+        };
+    </script>
+</body>
+</html>
